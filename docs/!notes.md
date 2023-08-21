@@ -1,8 +1,12 @@
-======
+***
 Курс на ютубе: https://www.youtube.com/watch?v=_UywBskWJ7Q&list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl
-Дизайн:
-Исходник проекта:
-======
+
+репа на проект
+https://github.com/Archakov06/react-pizza-v2
+
+репа на верстку
+https://github.com/Archakov06/react-pizza-html
+***
 
 # Lesson 0: Для кого данный курс и как его смотреть? Что нового?
 
