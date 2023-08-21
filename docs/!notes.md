@@ -1,12 +1,14 @@
-***
-Курс на ютубе: https://www.youtube.com/watch?v=_UywBskWJ7Q&list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl
+<!-- ****** -->
 
-репа на проект
-https://github.com/Archakov06/react-pizza-v2
+- Курс на ютубе: https://www.youtube.com/watch?v=_UywBskWJ7Q&list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl
+- репа на проект - https://github.com/Archakov06/react-pizza-v2
+- репа на верстку - https://github.com/Archakov06/react-pizza-html
 
-репа на верстку
-https://github.com/Archakov06/react-pizza-html
-***
+<!-- ****** -->
+
+-
+-
+-
 
 # Lesson 0: Для кого данный курс и как его смотреть? Что нового?
 
@@ -40,17 +42,17 @@ $ npm i sass - установка библиотеки для работы с sa
 
 ......
 
-# Lesson 3: ???
+# Lesson 3: Как хранить данные в компоненте (useState), onClick, деструктуризация
 
 Третий урок начал проходить на работе и в очередной раз столкнулся с проблемой при создании коммита, указывается глобальный автор
 а мне нужно чтобы указывался автор моей личной учетной записи
 
----------
+---
 
-PS D:\LEARN\1projects_learn\111react-pizza\react-pizza> git commit -am 'docs: add urls'     
+PS D:\LEARN\1projects_learn\111react-pizza\react-pizza> git commit -am 'docs: add urls'  
 [main 3a928fa] docs: add urls
- Committer: aaaa sss dddd <asdf@asdf.kz>
-Your name and email address were configured automatically based      
+Committer: aaaa sss dddd <asdf@asdf.kz>
+Your name and email address were configured automatically based  
 on your username and hostname. Please check that they are accurate.
 You can suppress this message by setting them explicitly:
 
@@ -61,14 +63,12 @@ After doing this, you may fix the identity used for this commit with:
 
     git commit --amend --reset-author
 
- 1 file changed, 8 insertions(+), 4 deletions(-)
+1 file changed, 8 insertions(+), 4 deletions(-)
 PS D:\LEARN\1projects_learn\111react-pizza\react-pizza>
 
 как я могу испавить так чтобы только для этого проекта использовались другие учетные данные git
 
-
-
---------------
+---
 
 Сообщение, которое вы видите, указывает на то, что Git использует глобальные настройки имени пользователя и электронной почты для коммитов. Чтобы исправить это и использовать разные учетные данные только для конкретного проекта, вам нужно настроить локальные настройки пользователя для этого репозитория. Вы можете сделать это следующим образом:
 
@@ -87,13 +87,14 @@ git config user.email "ваша@почта.ком"
 
 Обратите внимание, что эти изменения будут действовать только в контексте данного репозитория. Если вы хотите использовать разные учетные данные в других проектах, вам придется настраивать их аналогичным образом в каждом репозитории.
 
------------
+---
 
+onClick={}
+const [state, setState] = useState(0); - хук состояния
 
-https://youtu.be/EXRqsxBNDzE?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=1909 
+const [pizzaCount, setPizzaCount] = useState(0);
+const [pizzaCount, setPizzaCount] = React.useState(0);
 
-
-???
 ......
 
 # Lesson 4: ???

@@ -1,13 +1,11 @@
-import { React, useState } from "react";
+import React from 'react';
 
-function PizzaBlock({title, price}) {
+function PizzaBlock({ title, price }) {
+  const [pizzaCount, setPizzaCount] = React.useState(0);
 
-  const [pizzaCount, setPizzaCount] = useState(0);
-
-  const onClicAdd = ()=>{
-    setPizzaCount(pizzaCount+1);
-
-  }
+  const onClicAdd = () => {
+    setPizzaCount(pizzaCount + 1);
+  };
 
   return (
     <div className='pizza-block'>
