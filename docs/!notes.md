@@ -97,9 +97,20 @@ const [pizzaCount, setPizzaCount] = React.useState(0);
 
 ......
 
-# Lesson 4: ???
+# Lesson 4: Создаем компонент пицц и категории, рендер списка, spread-оператор
 
-???
+два способа отображать статичную информацию:
+1 при добавлении файлов в папку public
+<img width='38' src='img/pizza-logo.svg' alt='Pizza logo' />
+
+2 при добавлении файлов в папку src
+import logoSVG from './../../img/pizza-logo.svg';
+<img width='38' src={logoSVG} alt='Pizza logo' />
+
+ES7+ React/Redux/React-Native snippets (расширение)
+rafc - создание нового функционального компонента
+imr - импорт
+
 .......
 
 # Lesson 5: ???

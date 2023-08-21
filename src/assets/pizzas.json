@@ -1,0 +1,24 @@
+ [
+  {
+    "id": 0,
+    "imageUrl": "asdfasf",
+    "name" : "Пепперони Фреш с перцем",
+    "types" : [0, 1],
+    "sizes" : [26, 30, 40],
+    "price" : 803,
+    "category" : 0,
+    "rating" : 4
+  },
+  {
+    "id" : 1,
+    "imageUrl" : "asdfasf",
+    "name" : "Тутти фрутии",
+    "types" : [0, 1],
+    "sizes" : [26, 30, 40],
+    "price" : 803,
+    "category" : 0,
+    "rating" : 4
+  }
+
+]
+

@@ -7,9 +7,12 @@ import Categories from './components/Categories/Categories';
 import Sort from './components/Sort/Sort';
 import PizzaBlock from './components/PizzaBlock/PizzaBlock';
 
+import pizzas from './assets/pizzas.json';
+
 function App() {
   return (
     <>
+      {pizzas}
       <div className='wrapper'>
         <Header />
         <div className='content'>
