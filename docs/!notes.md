@@ -90,7 +90,7 @@ git config user.email "ваша@почта.ком"
 -----------
 
 
-
+https://youtu.be/EXRqsxBNDzE?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=1909 
 
 
 ???
