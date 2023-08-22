@@ -126,10 +126,15 @@ imr - импорт
 
 # Lesson 5: Создаем popup-окно сортировки, что такое key?
 
-https://youtu.be/_EiClUmTlNg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=14
+<React.Fragment></React.Fragment> или <></>
+
+&& - переменная && если переменная тру то продолжиться, если фолс то не будет работать
+!переменная - обрабтный эффект для 
+
+
 ......
 
-# Lesson 6: ???
+# Lesson 6: получаем пиццы с бэкенда (fetch), изучаем хук useEffect
 
 ???
 ......

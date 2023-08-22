@@ -12,7 +12,7 @@ function Categories() {
       <ul>
         {categories.map((el, index) => {
           return (
-            <li
+            <li key={index}
               onClick={() => {
                 setActiveIndex(index);
               }}
