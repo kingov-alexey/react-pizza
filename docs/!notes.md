@@ -136,7 +136,7 @@ imr - импорт
 
 # Lesson 6: получаем пиццы с бэкенда (fetch), изучаем хук useEffect
 
-???
+https://youtu.be/A_7DhcVwcjg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=989
 ......
 
 # Lesson 7: ???
