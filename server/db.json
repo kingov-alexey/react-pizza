@@ -1,4 +1,5 @@
-{[
+{
+  "table-pizzas": [
     {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
@@ -99,5 +100,56 @@
       "category": 5,
       "rating": 7
     }
-]}
-  
+  ],
+  "table-items": [
+    {
+      "id": 1,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    },
+    {
+      "id": 2,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    },
+    {
+      "id": 3,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    }
+  ],
+  "table-users": [
+    {
+      "id": 1,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    },
+    {
+      "id": 2,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    },
+    {
+      "id": 3,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    }
+  ],
+  "table-books": [
+    {
+      "id": 1,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    },
+    {
+      "id": 2,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    },
+    {
+      "id": 3,
+      "title": "/img/sneakers/1.jpg",
+      "description": "Мужские Кроссовки Nike Blazer Mid Suede"
+    }
+  ]
+}

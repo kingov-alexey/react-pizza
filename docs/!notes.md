@@ -129,19 +129,41 @@ imr - импорт
 <React.Fragment></React.Fragment> или <></>
 
 && - переменная && если переменная тру то продолжиться, если фолс то не будет работать
-!переменная - обрабтный эффект для 
-
+!переменная - обрабтный эффект для
 
 ......
 
 # Lesson 6: получаем пиццы с бэкенда (fetch), изучаем хук useEffect
 
-https://youtu.be/A_7DhcVwcjg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=989
+$ npm install -g json-server - устанавливаем либу для фейкого апи json-server ГЛОБАЛЬНО!
+$ json-server --watch db.json --port 9999 - запуск сервера с фейковым апи НУЖНО БЫТЬ В ПАПКЕ 'server'
+
+React.useEffect(() => {
+getPizzaAll();
+}, []);
+
+function getPizzaAll() {
+fetch('http://localhost:9999/table-pizzas')
+.then(res => {
+return res.json();
+})
+.then(json => {
+setPizzas(json);
+console.log(json);
+})
+.catch(err => {
+console.log('Ошибка:', err);
+});
+}
+
 ......
 
-# Lesson 7: ???
+# Lesson 7: Подключаем React Router v6, создаем компонент-скелетон
 
-???
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+$ npm install react-router-dom - устанавливаем либу для маршрутизации страниц
+
+https://youtu.be/eUt-M-YRjyg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=3
 ......
 
 # Lesson 8: ???
