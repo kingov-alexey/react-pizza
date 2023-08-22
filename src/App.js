@@ -1,32 +1,32 @@
-import React from 'react';
+import React from "react";
 
-import './scss/app.scss';
+import "./scss/app.scss";
 
-import Header from './components/Header/Header';
-import Categories from './components/Categories/Categories';
-import Sort from './components/Sort/Sort';
-import PizzaBlock from './components/PizzaBlock/PizzaBlock';
+import Header from "./components/Header/Header";
+import Categories from "./components/Categories/Categories";
+import Sort from "./components/Sort/Sort";
+import PizzaBlock from "./components/PizzaBlock/PizzaBlock";
 
-import pizzas from './assets/pizzas.json';
+import pizzas from "./assets/pizzas.json";
+
+console.log(pizzas);
 
 function App() {
   return (
     <>
-      {pizzas}
-      <div className='wrapper'>
+      <div className="wrapper">
         <Header />
-        <div className='content'>
-          <div className='container'>
-            <div className='content__top'>
+        <div className="content">
+          <div className="container">
+            <div className="content__top">
               <Categories />
               <Sort />
             </div>
-            <h2 className='content__title'>Все пиццы</h2>
-            <div className='content__items'>
-              <PizzaBlock title='ПепкаРони' price='500' />
-              <PizzaBlock title='Маргаринка' price={600} />
-              <PizzaBlock title='Грибоедов' price='700' />
-              <PizzaBlock title='asdfasdf' price='800' />
+            <h2 className="content__title">Все пиццы</h2>
+            <div className="content__items">
+              {pizzas.map((obj) => (
+                <PizzaBlock {...obj} />
+              ))}
             </div>
           </div>
         </div>

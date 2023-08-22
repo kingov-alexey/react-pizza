@@ -111,11 +111,22 @@ ES7+ React/Redux/React-Native snippets (расширение)
 rafc - создание нового функционального компонента
 imr - импорт
 
+данную запись можно сокранить
+<PizzaBlock
+                  title={obj.title}
+                  price={obj.price}
+                  imageUrl={obj.imageUrl}
+                  sizes={obj.sizes}
+                  types={obj.types}
+                />
+сокращенная версия с помощью спред оператора ()
+<PizzaBlock {...obj} />
+
 .......
 
-# Lesson 5: ???
+# Lesson 5: Создаем popup-окно сортировки, что такое key?
 
-???
+https://youtu.be/_EiClUmTlNg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=14
 ......
 
 # Lesson 6: ???
