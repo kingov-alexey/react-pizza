@@ -160,13 +160,22 @@ console.log('Ошибка:', err);
 
 # Lesson 7: Подключаем React Router v6, создаем компонент-скелетон
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+$ npm i react-content-loader - устанавливаем либо для прелоудера https://skeletonreact.com
 $ npm install react-router-dom - устанавливаем либу для маршрутизации страниц
 
-https://youtu.be/eUt-M-YRjyg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=3
+CSS - module NotFoundBlock.module.scss - можно использовать css можно scss но главное слово module
+
+
+<Route path="/" element={<Home />}/> - главная, можно написать без слеша "" 
+<Route path="/*" element={<NotFound />}/> - если из описанных роутев никакой не сработает, сработает этот
+
+<Link to="/"> - переход на главную с помощью реакт роутер дом
+
 ......
 
 # Lesson 8: ???
+
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
 ???
 ......

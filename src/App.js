@@ -1,56 +1,31 @@
-import React from 'react';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-import './scss/app.scss';
+import "./scss/app.scss";
 
-import Header from './components/Header/Header';
-import Categories from './components/Categories/Categories';
-import Sort from './components/Sort/Sort';
-import PizzaBlock from './components/PizzaBlock/PizzaBlock';
+import Header from "./components/Header/Header";
+import Home from './pages/Home'
+import NotFound from "./pages/NotFound";
+import Cart from "./pages/Cart";
+
 
 function App() {
-  const [pizzas, setPizzas] = React.useState([]);
-
-  React.useEffect(() => {
-    getPizzaAll();
-  }, []);
-
-  function getPizzaAll() {
-    fetch('http://localhost:9999/table-pizzas')
-      .then(res => {
-        return res.json();
-      })
-      .then(json => {
-        setPizzas(json);
-        console.log(json);
-      })
-      .catch(err => {
-        console.log('Ошибка:', err);
-      });
-  }
-
   return (
     <>
-      <div className='wrapper'>
+      <div className="wrapper">
         <Header />
-        <div className='content'>
-          <div className='container'>
-            <div className='content__top'>
-              <Categories />
-              <Sort />
-            </div>
-            <h2
-              onClick={() => {
-                getPizzaAll();
-              }}
-              className='content__title'
-            >
-              Все пиццы
-            </h2>
-            <div className='content__items'>
-              {pizzas.map((obj, id) => (
-                <PizzaBlock key={id} {...obj} />
-              ))}
-            </div>
+        <div className="content">
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />}/>
+              <Route path="/cart" element={<Cart />}/>
+              <Route path="/*" element={<NotFound />}/>
+            </Routes>
+
+
+
+          {/* <Home /> */}
+          {/* <NotFound /> */}
           </div>
         </div>
       </div>
