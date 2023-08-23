@@ -173,14 +173,18 @@ CSS - module NotFoundBlock.module.scss - можно использовать css
 
 ......
 
-# Lesson 8: ???
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
-???
+# Lesson 8: Настраиваем адаптивную вёрстку, создаём страницу корзины
+
+
+
+https://youtu.be/7t9_nmg_Yzg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=80
 ......
 
 # Lesson 9: ???
+
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
 ???
 ......
