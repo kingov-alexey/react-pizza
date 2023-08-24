@@ -199,18 +199,39 @@ window.scrollTo(0, 0); - скролит страницу наверх
 
 ......
 
-# Lesson 9: https://youtu.be/X_a-ba9hxwA?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=38
+# Lesson 9: Делаем функционал сортировки и фильтрации пицц
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+/* СОРТИРОВКА */
+// _sort & _order - asc по умолчанию
+const getSortedTodos = (field, order) =>
+  getTodos(`_sort=${field}&_order=${order}`)
+getSortedTodos('id', 'desc')
 
-https://youtu.be/X_a-ba9hxwA?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=38
+Где ASC и DESC - направление сортировки:
 
-???
+ASC - сортировка по возрастанию (по умолчанию)
+DESC - сортировка по убыванию
+
+итоговый пример на пиццах 
+http://localhost:9999/table-pizzas?_sort=category&_order=ask
+
+
+/* ПОИСК */
+const getTodosBySearch = (str) => getTodos(`q=${str}`)
+getTodosBySearch('eat') // Eat & Repeat - включают 'eat'
+
+итоговый пример на пиццах
+http://localhost:9999/table-pizzas?q=%D0%BF%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8
+
+/* СОРТИРОВКА И ПОИСК */
+http://localhost:9999/table-pizzas?_sort=category&_order=ask&q=%D0%BF%D0%B5%D0%BF%D0%BF%D0%B5%D1%80%D0%BE%D0%BD%D0%B8
+
 ......
 
-# Lesson 10: ???
+# Lesson 10: Разрабатываем пагинацию и поиск пицц
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
-???
+https://youtu.be/VHQxz5Cdrc8?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=3
 ......
 
 # Lesson 11: ???
