@@ -229,9 +229,20 @@ http://localhost:9999/table-pizzas?_sort=category&_order=ask&q=%D0%BF%D0%B5%D0%B
 ......
 
 # Lesson 10: Разрабатываем пагинацию и поиск пицц
+
+https://www.iconfinder.com/ - иконки
+
+
+контролируемый input
+
+
+
+
+
 $ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
-https://youtu.be/VHQxz5Cdrc8?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=3
+https://youtu.be/VHQxz5Cdrc8?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=1388
+
 ......
 
 # Lesson 11: ???
