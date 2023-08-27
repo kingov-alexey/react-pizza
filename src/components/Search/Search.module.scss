@@ -1,8 +1,8 @@
-.root{
+.root {
     position: relative;
 }
 
-.input{
+.input {
     border: 1px solid rgb(0, 0, 0, 0.1);
     padding: 12px 20px;
     // max-width: 400px;
@@ -13,10 +13,10 @@
     padding-left: 40px;
     transition: all 0.15s ease-in-out;
 
-    &:focus {
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        width: 400px;
-    }
+    // &:focus {
+    //     border: 1px solid rgba(0, 0, 0, 0.2);
+    //     width: 400px;
+    // }
 }
 
 .icon {
@@ -28,14 +28,15 @@
     top: 8px;
 }
 
-.clearIcon{
+.clearIcon {
     width: 18px;
     height: 18px;
     opacity: 0.3;
     position: absolute;
     right: 5px;
     top: 14px;
-    &:hover{
+
+    &:hover {
         opacity: 1;
         cursor: pointer;
     }
