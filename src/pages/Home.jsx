@@ -6,7 +6,10 @@ import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination/Pagination';
 
-const Home = ({ searchValue }) => {
+import {SearchContext} from '../App.js'
+
+const Home = () => {
+  const {searchValue} = React.useContext(SearchContext);
   const [pizzas, setPizzas] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0);
@@ -36,13 +39,13 @@ const Home = ({ searchValue }) => {
   const renderSkeleton = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
   function getPizzaAll() {
-    const category = categoryId > 0 ? `category=${categoryId}` : '';
-    const sortBy = `&_sort=` + sortType.sortProperty.replace('-', '');
-    const order = sortType.sortProperty.includes('-') ? '&_order=asc' : '&_order=desc';
+    
+    const category = categoryId > 0 ? `category=${categoryId}` : ''; //фильтр по полю
+    const sortBy = `&_sort=` + sortType.sortProperty.replace('-', ''); //сортировка
+    const order = sortType.sortProperty.includes('-') ? '&_order=asc' : '&_order=desc';//направление сортировки
     const search = searchValue ? `${'&title'}_like=${searchValue}` : '';
     const pagination = `&_page=${currentPage}&_limit=4`;
-    const payload = `${category}${order}${sortBy}${search}${pagination}`;
-    // const payload = `${pagination}`;
+    const payload = `${category}${sortBy}${order}${search}${pagination}`;
 
     setIsLoading(true);
     fetch(`http://localhost:9999/table-pizzas?${payload}`)

@@ -254,17 +254,49 @@ $ npm i react-paginate - либа для готовой пагинации
 
 # Lesson 11: Что такое контекст в React (useContext) и Props Drilling?
 
-useContext()
+1 для начала создаем и экспортируем контекст 
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+export const SearchContext = React.createContext();
 
-https://youtu.be/dR96e1fq6Mg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=7
+2 оборачиваем созданным контекстом, родительский компонент, в котором будет необходимость для дочерних элементов использовать ранее созданный контекст
+
+return (
+    <>
+      <div className="wrapper">
+        <SearchContext.Provider value={{searchValue, setSearchValue}}>
+          <Header  />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home searchValue={searchValue} />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </SearchContext.Provider>
+      </div>
+    </>
+  );
+
+  3 в дочерних элементах где необходимо использовать контекст, производим импорт 
+  
+  import {SearchContext} from '../../App.js';
+
+  4 используюя хук возвращаем содержимое контекста и используюем 
+
+  const {searchValue, setSearchValue} = React.useContext(SearchContext);
+
+
+Хук useContext() для понимания можно сравнить с слушателем addEventListener
 
 ......
 
-# Lesson 12: ???
+# Lesson 12: Изучаем библиотеку Redux Toolkit
 
-???
+
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+
+https://youtu.be/-pF8SDS-uSc?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=21
+
 ......
 
 # Lesson 13: ???
@@ -338,6 +370,11 @@ https://youtu.be/dR96e1fq6Mg?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=7
 ......
 
 # Lesson 26: ???
+
+???
+......
+
+# Lesson 27: ???
 
 ???
 ......
