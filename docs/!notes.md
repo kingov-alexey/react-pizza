@@ -292,14 +292,23 @@ return (
 
 # Lesson 12: Изучаем библиотеку Redux Toolkit
 
+теория
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+https://redux-toolkit.js.org/ - оффСайт
 
-https://youtu.be/-pF8SDS-uSc?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=21
+https://redux-toolkit.js.org/tutorials/quick-start 
+
+$ npm install @reduxjs/toolkit react-redux 
+
+
+
+https://youtu.be/-pF8SDS-uSc?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=3754
 
 ......
 
 # Lesson 13: ???
+
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
 ???
 ......
