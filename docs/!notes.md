@@ -254,37 +254,37 @@ $ npm i react-paginate - либа для готовой пагинации
 
 # Lesson 11: Что такое контекст в React (useContext) и Props Drilling?
 
-1 для начала создаем и экспортируем контекст 
+1 для начала создаем и экспортируем контекст
 
 export const SearchContext = React.createContext();
 
 2 оборачиваем созданным контекстом, родительский компонент, в котором будет необходимость для дочерних элементов использовать ранее созданный контекст
 
 return (
-    <>
-      <div className="wrapper">
-        <SearchContext.Provider value={{searchValue, setSearchValue}}>
-          <Header  />
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Home searchValue={searchValue} />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/*" element={<NotFound />} />
-            </Routes>
-          </div>
-        </SearchContext.Provider>
-      </div>
-    </>
-  );
+<>
 
-  3 в дочерних элементах где необходимо использовать контекст, производим импорт 
-  
-  import {SearchContext} from '../../App.js';
+<div className="wrapper">
+<SearchContext.Provider value={{searchValue, setSearchValue}}>
+<Header  />
+<div className="content">
+<Routes>
+<Route path="/" element={<Home searchValue={searchValue} />} />
+<Route path="/cart" element={<Cart />} />
+<Route path="/\*" element={<NotFound />} />
+</Routes>
+</div>
+</SearchContext.Provider>
+</div>
+</>
+);
 
-  4 используюя хук возвращаем содержимое контекста и используюем 
+3 в дочерних элементах где необходимо использовать контекст, производим импорт
 
-  const {searchValue, setSearchValue} = React.useContext(SearchContext);
+import {SearchContext} from '../../App.js';
 
+4 используюя хук возвращаем содержимое контекста и используюем
+
+const {searchValue, setSearchValue} = React.useContext(SearchContext);
 
 Хук useContext() для понимания можно сравнить с слушателем addEventListener
 
@@ -296,24 +296,22 @@ return (
 
 https://redux-toolkit.js.org/ - оффСайт
 
-https://redux-toolkit.js.org/tutorials/quick-start 
+https://redux-toolkit.js.org/tutorials/quick-start
 
-$ npm install @reduxjs/toolkit react-redux 
-
-
-
-https://youtu.be/-pF8SDS-uSc?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=3754
+$ npm install @reduxjs/toolkit react-redux
 
 ......
 
-# Lesson 13: ???
+# Lesson 13: Изучаем хуки useSelector, useDispatch, создаем свой Slice в Redux Toolkit
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+https://youtu.be/h1Q2V2Ek0EQ?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=10
 
 ???
 ......
 
 # Lesson 14: ???
+
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
 ???
 ......
