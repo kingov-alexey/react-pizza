@@ -304,7 +304,9 @@ $ npm install @reduxjs/toolkit react-redux
 
 # Lesson 13: Изучаем хуки useSelector, useDispatch, создаем свой Slice в Redux Toolkit
 
-https://youtu.be/h1Q2V2Ek0EQ?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=10
+создаем slice для filter
+
+https://youtu.be/h1Q2V2Ek0EQ?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=1370
 
 ???
 ......

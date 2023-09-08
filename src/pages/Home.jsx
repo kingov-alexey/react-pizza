@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector} from 'react-redux';
 
 import Categories from '../components/Categories/Categories';
 import Sort from '../components/Sort/Sort';
@@ -9,15 +10,37 @@ import Pagination from '../components/Pagination/Pagination';
 import {SearchContext} from '../App.js'
 
 const Home = () => {
+
+  const categoryId = useSelector(state => state.filter.categoryId);
+
+  console.log(categoryId);
+
+  const onChangeCategory = (id) => {
+    console.log(id);
+
+  }
+
+
+
+
+
+
+
+
+
   const {searchValue} = React.useContext(SearchContext);
   const [pizzas, setPizzas] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [categoryId, setCategoryId] = React.useState(0);
+  // const [categoryId, setCategoryId] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1);
   const [sortType, setSortType] = React.useState({
     name: 'популярности',
     sortProperty: 'rating',
   });
+
+  const onClickCategory = (id) => {
+
+  }
 
   React.useEffect(() => {
     getPizzaAll();
@@ -65,9 +88,7 @@ const Home = () => {
       <div className='content__top'>
         <Categories
           value={categoryId}
-          onChangeCategory={e => {
-            setCategoryId(e);
-          }}
+          onChangeCategory={onChangeCategory}
         />
         <Sort
           value={sortType}
