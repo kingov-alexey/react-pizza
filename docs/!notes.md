@@ -306,19 +306,23 @@ $ npm install @reduxjs/toolkit react-redux
 
 создаем slice для filter
 
-https://youtu.be/h1Q2V2Ek0EQ?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=1370
+Устанавливаем расширения:
+- Redux DevTools https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ru
+- React Developer Tools https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related?hl=ru
 
-???
 ......
 
-# Lesson 14: ???
+# Lesson 14: Оптимизируем поиск с помощью Debounce, пагинация через Redux Toolkit
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
-???
+https://youtu.be/YAsKVCNqdy4?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=16
+
+
 ......
 
 # Lesson 15: ???
+
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
 ???
 ......

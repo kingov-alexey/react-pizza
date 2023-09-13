@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId } from "../redux/slices/filterSlice";
 
 import Categories from '../components/Categories/Categories';
 import Sort from '../components/Sort/Sort';
@@ -11,51 +12,24 @@ import {SearchContext} from '../App.js'
 
 const Home = () => {
 
-  const categoryId = useSelector(state => state.filter.categoryId);
+  const dispatch = useDispatch();
+  const {categoryId, sort} = useSelector(state => state.filter);
 
-  console.log(categoryId);
 
   const onChangeCategory = (id) => {
-    console.log(id);
+    dispatch(setCategoryId(id));
 
   }
-
-
-
-
-
-
-
-
 
   const {searchValue} = React.useContext(SearchContext);
   const [pizzas, setPizzas] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  // const [categoryId, setCategoryId] = React.useState(0);
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [sortType, setSortType] = React.useState({
-    name: 'популярности',
-    sortProperty: 'rating',
-  });
-
-  const onClickCategory = (id) => {
-
-  }
 
   React.useEffect(() => {
     getPizzaAll();
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]);
-
-  // статический способ поиска
-  // const renderPizzas = pizzas
-  //   .filter(obj => {
-  //     if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
-  //       return true;
-  //     }
-  //     return false;
-  //   })
-  //   .map((obj, id) => <PizzaBlock key={id} {...obj} />);
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   const renderPizzas = pizzas.map((obj, id) => <PizzaBlock key={id} {...obj} />);
 
@@ -64,8 +38,8 @@ const Home = () => {
   function getPizzaAll() {
     
     const category = categoryId > 0 ? `category=${categoryId}` : ''; //фильтр по полю
-    const sortBy = `&_sort=` + sortType.sortProperty.replace('-', ''); //сортировка
-    const order = sortType.sortProperty.includes('-') ? '&_order=asc' : '&_order=desc';//направление сортировки
+    const sortBy = `&_sort=` + sort.sortProperty.replace('-', ''); //сортировка
+    const order = sort.sortProperty.includes('-') ? '&_order=asc' : '&_order=desc';//направление сортировки
     const search = searchValue ? `${'&title'}_like=${searchValue}` : '';
     const pagination = `&_page=${currentPage}&_limit=4`;
     const payload = `${category}${sortBy}${order}${search}${pagination}`;
@@ -90,12 +64,7 @@ const Home = () => {
           value={categoryId}
           onChangeCategory={onChangeCategory}
         />
-        <Sort
-          value={sortType}
-          onChangeSort={e => {
-            setSortType(e);
-          }}
-        />
+        <Sort />
       </div>
 
       <h2 className='content__title'>Все пиццы</h2>
