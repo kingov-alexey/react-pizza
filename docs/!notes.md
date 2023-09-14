@@ -314,17 +314,25 @@ $ npm install @reduxjs/toolkit react-redux
 
 # Lesson 14: Оптимизируем поиск с помощью Debounce, пагинация через Redux Toolkit
 
+$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
 
-https://youtu.be/YAsKVCNqdy4?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=16
+React.useRef();
 
+debounce(alert, 100); (похоже на сетТаймАут)
+
+lodash https://lodash.com/ 
+
+$ npm install lodash (можно установить полностью всю библиотеку)
+$ npm install lodash.debounce (либо выбрать определенные методы)
+
+React.useCallback();
 
 ......
 
-# Lesson 15: ???
+# Lesson 15: React Pizza v2 — Сохраняем параметры фильтрации в URL
 
-$ npm install axios - устанавливаем либу для удобной отправки fetch запросов на api
+https://youtu.be/e-sm4OOXHBc?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=12
 
-???
 ......
 
 # Lesson 16: ???
