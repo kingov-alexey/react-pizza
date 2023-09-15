@@ -1,12 +1,14 @@
 import React from 'react';
+import qs from 'qs';
+import {useNavigate} from 'react-router-dom';
 
 import axios from 'axios';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
+import { setCategoryId, setCurrentPage, setFilters } from "../redux/slices/filterSlice";
 
 import Categories from '../components/Categories/Categories';
-import Sort from '../components/Sort/Sort';
+import Sort, {sortList} from '../components/Sort/Sort';
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination/Pagination';
@@ -14,10 +16,11 @@ import Pagination from '../components/Pagination/Pagination';
 import {SearchContext} from '../App.js'
 
 const Home = () => {
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isSearch = React.useRef(false);
+  const isMounted = React.useRef(false);
   const {categoryId, sort, currentPage} = useSelector(state => state.filter);
-
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
@@ -31,12 +34,45 @@ const Home = () => {
   const {searchValue} = React.useContext(SearchContext);
   const [pizzas, setPizzas] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  // const [currentPage, setCurrentPage] = React.useState(1);
 
+  //если был превый рендер, то запрашиваем пиццы
   React.useEffect(() => {
-    getPizzaAll();
     window.scrollTo(0, 0);
+    if (!isSearch.current) {
+      getPizzaAll();
+    }
+
+    isSearch.current = false;
+
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+
+
+  //Если изменили параметры и был первый рендер
+  React.useEffect(() => {
+    if (isMounted.current){
+      const queryString = qs.stringify({
+        sortProperty: sort.sortProperty,
+        categoryId,
+        currentPage
+      });
+      navigate(`?${queryString}`);
+    }
+    isMounted.current = true;
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+
+  //Если был первый рендер, то проверяем URL-параметры в редаксе
+  React.useEffect(()=>{
+    if (window.location.search){
+      const params = qs.parse(window.location.search.substring(1));
+      const sort = sortList.find(obj => obj.sortProperty === params.sortProperty);
+
+      dispatch(setFilters({
+        ...params,
+        sort
+      }));
+      isSearch.current = true;
+    }
+  },[]);
 
   const renderPizzas = pizzas.map((obj, id) => <PizzaBlock key={id} {...obj} />);
 
@@ -54,27 +90,13 @@ const Home = () => {
 
     setIsLoading(true);
 
-    fetch(`http://localhost:9999/table-pizzas?${payload}`)
-      .then(res => {
-        return res.json();
-      })
-      .then(json => {
-        setPizzas(json);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.log('Ошибка:', err);
-      });
-
       axios.get(`${baseURL}/table-pizzas?${payload}`)
-      .then(response => {
-        setPizzas(response.data);
+      .then(res => {
+        setPizzas(res.data);
         setIsLoading(false);
       });
+  };
 
-
-
-  }
   return (
     <div className='container'>
       <div className='content__top'>
