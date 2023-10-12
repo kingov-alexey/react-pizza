@@ -346,13 +346,14 @@ $ npm install qs - для парсинга адресной строки
 
 # Lesson 16: Создаем Redux-логику для корзины, скрытие/показ popup-сортировки
 
-https://youtu.be/RhOvu20t0Go?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=60
+RTK
 
 ......
 
 # Lesson 17: ???
 
-???
+https://youtu.be/azf3uk4zOew?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=69 
+
 ......
 
 # Lesson 18: ???
