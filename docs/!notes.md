@@ -350,9 +350,11 @@ RTK
 
 ......
 
-# Lesson 17: ???
+# Lesson 17: React Pizza v2 — Асинхронные экшены в RTK (createAsyncThunk), отлавливаем ошибки
 
-https://youtu.be/azf3uk4zOew?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=69 
+try catch finally
+
+https://youtu.be/azf3uk4zOew?list=PL0FGkDGJQjJG9eI85xM1_iLIf6BcEdaNl&t=2454
 
 ......
 

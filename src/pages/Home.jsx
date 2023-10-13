@@ -21,6 +21,8 @@ const Home = () => {
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
   const {categoryId, sort, currentPage} = useSelector(state => state.filter);
+  const items = useSelector(state => state.pizzas.items);
+  const pizzas = items;
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
@@ -32,7 +34,7 @@ const Home = () => {
   }
 
   const {searchValue} = React.useContext(SearchContext);
-  const [pizzas, setPizzas] = React.useState([]);
+  // const [pizzas, setPizzas] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   //если был превый рендер, то запрашиваем пиццы
@@ -78,41 +80,43 @@ const Home = () => {
 
   const renderSkeleton = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
-  function getPizzaAll() {
-    
-    const category = categoryId > 0 ? `category=${categoryId}` : ''; //фильтр по полю
-    const sortBy = `&_sort=` + sort.sortProperty.replace('-', ''); //сортировка
-    const order = sort.sortProperty.includes('-') ? '&_order=asc' : '&_order=desc';//направление сортировки
-    const search = searchValue ? `${'&title'}_like=${searchValue}` : '';
+  const getPizzaAll = async () => {
+    const category = categoryId > 0 ? `category=${categoryId}` : ""; //фильтр по полю
+    const sortBy = `&_sort=` + sort.sortProperty.replace("-", ""); //сортировка
+    const order = sort.sortProperty.includes("-")
+      ? "&_order=asc"
+      : "&_order=desc"; //направление сортировки
+    const search = searchValue ? `${"&title"}_like=${searchValue}` : "";
     const pagination = `&_page=${currentPage}&_limit=4`;
     const payload = `${category}${sortBy}${order}${search}${pagination}`;
     const baseURL = 'http://localhost:9999';
 
     setIsLoading(true);
 
-      axios.get(`${baseURL}/table-pizzas?${payload}`)
-      .then(res => {
-        setPizzas(res.data);
-        setIsLoading(false);
-      });
+    try {
+      const res = await axios.get(`${baseURL}/table-pizzas?${payload}`);
+      setPizzas(res.data);
+    } catch (error) {
+      console.log('error', error);
+      console.error(error);      
+    } finally {
+      setIsLoading(false);
+    }
+
   };
 
   return (
-    <div className='container'>
-      <div className='content__top'>
-        <Categories
-          value={categoryId}
-          onChangeCategory={onChangeCategory}
-        />
+    <div className="container">
+      <div className="content__top">
+        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
 
-      <h2 className='content__title'>Все пиццы</h2>
-      <div className='content__items'>{isLoading ? renderSkeleton : renderPizzas}</div>
-      <Pagination
-      currentPage={currentPage}
-        onChangePage={onChangePage}
-      />
+      <h2 className="content__title">Все пиццы</h2>
+      <div className="content__items">
+        {isLoading ? renderSkeleton : renderPizzas}
+      </div>
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 };
