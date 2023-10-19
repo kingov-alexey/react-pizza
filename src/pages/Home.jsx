@@ -14,6 +14,7 @@ import Skeleton from '../components/PizzaBlock/Skeleton';
 import Pagination from '../components/Pagination/Pagination';
 
 import {SearchContext} from '../App.js'
+import {  fetchPizzas } from '../redux/slices/pizzaSlice';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Home = () => {
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
   const {categoryId, sort, currentPage} = useSelector(state => state.filter);
-  const items = useSelector(state => state.pizzas.items);
+  const {items, status } = useSelector(state => state.pizza); 
   const pizzas = items;
 
   const onChangeCategory = (id) => {
@@ -35,13 +36,13 @@ const Home = () => {
 
   const {searchValue} = React.useContext(SearchContext);
   // const [pizzas, setPizzas] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+
 
   //если был превый рендер, то запрашиваем пиццы
   React.useEffect(() => {
     window.scrollTo(0, 0);
     if (!isSearch.current) {
-      getPizzaAll();
+      getPizzas();
     }
 
     isSearch.current = false;
@@ -80,7 +81,7 @@ const Home = () => {
 
   const renderSkeleton = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
-  const getPizzaAll = async () => {
+  const getPizzas = async () => {
     const category = categoryId > 0 ? `category=${categoryId}` : ""; //фильтр по полю
     const sortBy = `&_sort=` + sort.sortProperty.replace("-", ""); //сортировка
     const order = sort.sortProperty.includes("-")
@@ -89,18 +90,23 @@ const Home = () => {
     const search = searchValue ? `${"&title"}_like=${searchValue}` : "";
     const pagination = `&_page=${currentPage}&_limit=4`;
     const payload = `${category}${sortBy}${order}${search}${pagination}`;
-    const baseURL = 'http://localhost:9999';
+    const baseURL = 'http://flocalhost:9999';
 
-    setIsLoading(true);
+    
 
     try {
-      const res = await axios.get(`${baseURL}/table-pizzas?${payload}`);
-      setPizzas(res.data);
+      // const { data } = await axios.get(`${baseURL}/table-pizzas?${payload}`);
+      dispatch(fetchPizzas({
+        baseURL, 
+        payload
+
+      }));
+      // setPizzas(res.data);
     } catch (error) {
       console.log('error', error);
       console.error(error);      
     } finally {
-      setIsLoading(false);
+      // setIsLoading(false);
     }
 
   };
@@ -111,11 +117,25 @@ const Home = () => {
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
-
       <h2 className="content__title">Все пиццы</h2>
-      <div className="content__items">
-        {isLoading ? renderSkeleton : renderPizzas}
-      </div>
+
+      {
+        
+        status === 'error' ? (<div className='content__error-info'>
+          <h2>Произошла ошибка 😕</h2>
+          <p>
+            К сожалению не удалось получить пиццы. Попробуйте повторить попытку позже
+          </p>
+        </div> ) : (
+                <div className="content__items">
+                  
+                {status === "loading" ? renderSkeleton : renderPizzas}
+              </div>
+        ) 
+      }
+
+      
+
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
